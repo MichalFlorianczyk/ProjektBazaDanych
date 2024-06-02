@@ -14,11 +14,17 @@ INSERT INTO Nauczyciele (nauczyciel_id, imie, nazwisko) VALUES (2, 'Tomasz', 'Kw
 INSERT INTO Nauczyciele (nauczyciel_id, imie, nazwisko) VALUES (3, 'Elżbieta', 'Więcek');
 
 -- Wstawianie danych do tabeli Oceny
-INSERT INTO Oceny (ocena_id, uczen_id, przedmiot_id, nauczyciel_id, ocena, data_oceny) VALUES (1, 1, 1, 1, 5, TO_DATE('2024-01-15', 'YYYY-MM-DD'));
-INSERT INTO Oceny (ocena_id, uczen_id, przedmiot_id, nauczyciel_id, ocena, data_oceny) VALUES (2, 2, 1, 1, 3, TO_DATE('2024-01-20', 'YYYY-MM-DD'));
-INSERT INTO Oceny (ocena_id, uczen_id, przedmiot_id, nauczyciel_id, ocena, data_oceny) VALUES (3, 3, 2, 2, 4, TO_DATE('2024-01-22', 'YYYY-MM-DD'));
+INSERT INTO Oceny (ocena_id, uczen_id, przedmiot_id, nauczyciel_id, ocena, data_oceny) VALUES (4, 1, 2, 2, 2, TO_DATE('2024-02-15', 'YYYY-MM-DD'));
+INSERT INTO Oceny (ocena_id, uczen_id, przedmiot_id, nauczyciel_id, ocena, data_oceny) VALUES (5, 2, 3, 3, 5, TO_DATE('2024-02-20', 'YYYY-MM-DD'));
+INSERT INTO Oceny (ocena_id, uczen_id, przedmiot_id, nauczyciel_id, ocena, data_oceny) VALUES (6, 3, 1, 1, 4, TO_DATE('2024-03-15', 'YYYY-MM-DD'));
+INSERT INTO Oceny (ocena_id, uczen_id, przedmiot_id, nauczyciel_id, ocena, data_oceny) VALUES (7, 1, 3, 3, 5, TO_DATE('2024-04-15', 'YYYY-MM-DD'));
+INSERT INTO Oceny (ocena_id, uczen_id, przedmiot_id, nauczyciel_id, ocena, data_oceny) VALUES (8, 2, 2, 2, 4, TO_DATE('2024-05-20', 'YYYY-MM-DD'));
+INSERT INTO Oceny (ocena_id, uczen_id, przedmiot_id, nauczyciel_id, ocena, data_oceny) VALUES (9, 3, 3, 3, 5, TO_DATE('2024-06-15', 'YYYY-MM-DD'));
 
 -- Wstawianie danych do tabeli Frekwencja
-INSERT INTO Frekwencja (frekwencja_id, uczen_id, data, obecny) VALUES (1, 1, TO_DATE('2024-01-10', 'YYYY-MM-DD'), 'T');
-INSERT INTO Frekwencja (frekwencja_id, uczen_id, data, obecny) VALUES (2, 2, TO_DATE('2024-01-10', 'YYYY-MM-DD'), 'N');
-INSERT INTO Frekwencja (frekwencja_id, uczen_id, data, obecny) VALUES (3, 3, TO_DATE('2024-01-10', 'YYYY-MM-DD'), 'T');
+INSERT INTO Frekwencja (frekwencja_id, uczen_id, data, obecny) VALUES (4, 1, TO_DATE('2024-02-10', 'YYYY-MM-DD'), 'N');
+INSERT INTO Frekwencja (frekwencja_id, uczen_id, data, obecny) VALUES (5, 2, TO_DATE('2024-02-10', 'YYYY-MM-DD'), 'T');
+INSERT INTO Frekwencja (frekwencja_id, uczen_id, data, obecny) VALUES (6, 3, TO_DATE('2024-03-10', 'YYYY-MM-DD'), 'N');
+INSERT INTO Frekwencja (frekwencja_id, uczen_id, data, obecny) VALUES (7, 1, TO_DATE('2024-04-10', 'YYYY-MM-DD'), 'T');
+INSERT INTO Frekwencja (frekwencja_id, uczen_id, data, obecny) VALUES (8, 2, TO_DATE('2024-05-10', 'YYYY-MM-DD'), 'N');
+INSERT INTO Frekwencja (frekwencja_id, uczen_id, data, obecny) VALUES (9, 3, TO_DATE('2024-06-10', 'YYYY-MM-DD'), 'T');

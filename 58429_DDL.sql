@@ -10,7 +10,7 @@ CREATE TABLE Uczniowie (
 -- Tworzenie tabeli Przedmioty
 CREATE TABLE Przedmioty (
     przedmiot_id NUMBER PRIMARY KEY,
-    nazwa VARCHAR2(100) NOT NULL
+    nazwa VARCHAR2(100) NOT NULL UNIQUE
 );
 
 -- Tworzenie tabeli Nauczyciele
@@ -27,7 +27,7 @@ CREATE TABLE Oceny (
     przedmiot_id NUMBER NOT NULL,
     nauczyciel_id NUMBER NOT NULL,
     ocena NUMBER CHECK (ocena BETWEEN 1 AND 6),
-    data_oceny DATE NOT NULL,
+    data_oceny DATE DEFAULT SYSDATE NOT NULL,
     FOREIGN KEY (uczen_id) REFERENCES Uczniowie(uczen_id),
     FOREIGN KEY (przedmiot_id) REFERENCES Przedmioty(przedmiot_id),
     FOREIGN KEY (nauczyciel_id) REFERENCES Nauczyciele(nauczyciel_id)
@@ -37,7 +37,7 @@ CREATE TABLE Oceny (
 CREATE TABLE Frekwencja (
     frekwencja_id NUMBER PRIMARY KEY,
     uczen_id NUMBER NOT NULL,
-    data DATE NOT NULL,
+    data DATE DEFAULT SYSDATE NOT NULL,
     obecny VARCHAR2(1) CHECK (obecny IN ('T', 'N')),
     FOREIGN KEY (uczen_id) REFERENCES Uczniowie(uczen_id)
 );
@@ -46,3 +46,15 @@ CREATE TABLE Frekwencja (
 CREATE INDEX idx_uczen_klasa ON Uczniowie (klasa);
 CREATE INDEX idx_oceny_uczen_id ON Oceny (uczen_id);
 CREATE INDEX idx_frekwencja_uczen_id ON Frekwencja (uczen_id);
+
+-- Tworzenie wyzwalaczy
+
+-- Wyzwalacz sprawdzający poprawność daty urodzenia
+CREATE OR REPLACE TRIGGER Check_DateOfBirth
+BEFORE INSERT OR UPDATE ON Uczniowie
+FOR EACH ROW
+BEGIN
+    IF :NEW.data_urodzenia >= SYSDATE THEN
+        RAISE_APPLICATION_ERROR(-20001, 'Data urodzenia musi być wcześniejsza niż bieżąca data.');
+    END IF;
+END;
